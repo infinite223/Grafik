@@ -1,0 +1,9 @@
+
+.DateStyle{
+    text-align: right;
+    font-size: calc(3px + 2vmin);
+    margin-right: 17px;
+}
+.Better-View {
+    margin-left: .7rem; /* można w px */
+}

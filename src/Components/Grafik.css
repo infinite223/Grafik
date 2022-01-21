@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+  color: white;
+  background-color: #282c34;
+}
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+}
+.Name-Web{
+  font-size: calc(15px + 2vmin);
+  letter-spacing: 5px;
+  align-items: center;
+}
+.App-link {
+  color: #61dafb;
+}
+.Calendar{
+  margin: 20px;
+}
+.Name{
+  float: left;
+  text-align: left;
+  max-width: 100px;
+  margin: 30px;
+}
+.Header{
+  flex-direction: row;
+}
+.saveButton{
+  border: 2px solid aqua;
+  border-radius: 5%;
+  width: 400px;
+  height: 80px;
+  color: white;
+  font-size:larger;
+  background-color: #282c34;;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
