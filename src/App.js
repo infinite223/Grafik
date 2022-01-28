@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Grafik from "./Components/Grafik";
-import LoginView from "./Components/loginView";
+import Grafik from "./Components/Grafik/Grafik";
+import LoginView from "./Components/LoginView/loginView";
 
 
 function App() {
