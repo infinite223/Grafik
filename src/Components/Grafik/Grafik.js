@@ -6,21 +6,18 @@ import React, {useState, useEffect } from 'react';
 import Axios from 'axios';
 
 const daysAllUser = [];
-const daysUser = [];
-const str = '22,12,2,3';
+const daysUser = [null];
+
   Axios.get('http://localhost:3001/api/selectDays').then((response)=>{     
     for(var i in response.data)
       daysAllUser.push([i, response.data[i]]);
       const arr = daysAllUser[0][1].day.substr(1,daysAllUser[0][1].day.length-2).split(",");
       for(var i in arr)
-      daysUser.push(i, parseInt(arr[i],10));
-      console.log(daysUser)        
+      daysUser.push(i, parseInt(arr[i],10));       
   })
-
+ 
 //main function
- function Grafik() { 
-    
-    
+ function Grafik() {    
     const location = useLocation();
     const Days = 31;
    //add day to arrow
@@ -35,15 +32,12 @@ const str = '22,12,2,3';
     //save all data in DB
     const saveData = () =>{
           Axios.post('http://localhost:3001/api/insertDay',{
-            day:JSON.stringify(daysUser),
-           // day:daysUser,
+            day:JSON.stringify(daysUser),         
             name:location.state.name
             }).then(()=>{
             alert("grafik zaaktualizowany");
           });                
     }
-
-
   return (
     <div className="App">
       <header className="App-header"> 
@@ -61,7 +55,7 @@ const str = '22,12,2,3';
                 NowDay={i+1}
                 adddays={(x)=>handleAddClic(x)}
                 deletedays={(x)=>handleRemoveClick(x)}  
-                nowDays={daysUser}    
+                nowDays={daysAllUser}              
                 />    
               )}
             </div>                           
