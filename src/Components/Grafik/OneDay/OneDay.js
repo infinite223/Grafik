@@ -3,37 +3,34 @@ import './OneDay.css';
 
 
 function OneDay(props){
-    const [worker, setWorker] = useState("");   
+    const [worker, setWorker] = useState([null]);   
     const[color, setColor] = useState('OneDayBox');  
-    let users = [null];
+    
     useEffect(() => {
-     for(var i in props.nowDays){
-       const daysUser = [null];
-       const arr = props.nowDays[i][1].day.substr(1,props.nowDays[i][1].day.length-2).split(",")
-       for(var j in arr){
-        daysUser.push(i, parseInt(arr[j],10));  
-       }
+      for(var i in props.nowDays){
+        const daysUser = [null];
+        const arr = props.nowDays[i][1].days.substr(1,props.nowDays[i][1].days.length-2).split(",")//dziwaczne ale działa dobrze 
+        for(var j in arr){
+          daysUser.push(j, parseInt(arr[j],10));  
+        }
         
-         if(daysUser.find(element => element === props.NowDay)){
-           users.push(props.nowDays[i][1].user+" ")
-            setWorker(users);                        
+        if(daysUser.find(element => element === props.NowDay)){
+           setWorker(worker=>[...worker,props.nowDays[i][1].user]);                                  
             if(props.nowDays[i][1].user===props.yName){
               setColor('OneDayBoxActive'); 
             }
-         } 
-     }
+        }      
+     }    
     }, []);
+
     function ChengeApply(){              
           if(color==="OneDayBoxActive"){    
-            //setWorker(worker[1]===props.yName?worker[2]:worker[1]);     //daiała ale potem reszta rip
-            setWorker(worker.slice(worker.indexOf(props.yName.target, 1)));                      
+            setWorker(worker.filter((e)=>(e !== props.yName)));                  
             setColor('OneDayBox');
             props.deletedays(props.NowDay);                                
           }
-          else{   
-            console.log(worker)                       
-            setWorker([...worker,props.yName]);   
-            console.log(worker)                           
+          else{                    
+            setWorker([...worker,props.yName]);                                               
             props.adddays(props.NowDay);    
             setColor('OneDayBoxActive');                                              
           }                       
@@ -43,7 +40,9 @@ function OneDay(props){
           <div className={color} onClick={(x)=>ChengeApply()}>          
             {props.NowDay}  
             <div className='Names'>
-              {worker}
+              {worker.map((user,i)=>(
+                <div key={i}>{user}</div>
+              ))}
             </div>  
           </div>      
     );  

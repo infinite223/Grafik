@@ -6,20 +6,28 @@ import React, {useState, useEffect } from 'react';
 import Axios from 'axios';
 
 const daysAllUser = [];
-const daysUser = [null];
+//get data from db
+Axios.get('http://localhost:3001/api/selectDays').then((response)=>{     
+  for(var i in response.data)
+    daysAllUser.push([i, response.data[i]]);  
+})  
 
-  Axios.get('http://localhost:3001/api/selectDays').then((response)=>{     
-    for(var i in response.data)
-      daysAllUser.push([i, response.data[i]]);
-      const arr = daysAllUser[0][1].day.substr(1,daysAllUser[0][1].day.length-2).split(",");
-      for(var i in arr)
-      daysUser.push(i, parseInt(arr[i],10));       
-  })
- 
 //main function
- function Grafik() {    
-    const location = useLocation();
-    const Days = 31;
+ function Grafik() {  
+  const location = useLocation();
+  const Days = 31;//trzeba tu jeszcze zajebać funkcje (ile dni w danym miechu)
+  const daysUser = [null];
+  
+  useEffect(() => {
+    for(var i in daysAllUser){
+      if(daysAllUser[i][1].user===location.state.name){
+        const arr = daysAllUser[i][1].days.substr(1,daysAllUser[i][1].days.length-2).split(",");
+        for(var j in arr)
+        daysUser.push(j, parseInt(arr[j],10)); 
+      }
+    } 
+  }, []); 
+
    //add day to arrow
     const handleAddClic = (x) => {
     daysUser.push(x);
@@ -32,7 +40,7 @@ const daysUser = [null];
     //save all data in DB
     const saveData = () =>{
           Axios.post('http://localhost:3001/api/insertDay',{
-            day:JSON.stringify(daysUser),         
+            days:JSON.stringify(daysUser),         
             name:location.state.name
             }).then(()=>{
             alert("grafik zaaktualizowany");
