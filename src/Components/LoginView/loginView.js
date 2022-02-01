@@ -3,6 +3,13 @@ import React, { Component, useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
 import {submitStyle,Field} from './loginViewStyle';
+import Navbar from './Navbar/Navbar';
+import Header from './Header/Header';
+import Start from './Start/Start';
+import Demo from './Demo/Demo';
+import Footer from './Footer/Footer';
+
+
 
 
 const LoginView = () =>{  
@@ -76,14 +83,16 @@ const LoginView = () =>{
     };
     
   return (
-    <div className="App">
-      <header className="App-header">          
-         <p className="Name-Web">               
-           Zaloguj się do grafiku        
-        </p>     
+    <div>
+       <Navbar/>
+       <Header/>
+       <Start/>
+       <Demo/>
+       <Footer/>
+        { /*   
         <Form onSubmit={handleSubmit} />    
         <div name={usernameNow}></div>
-      </header>
+        */}
     </div>
   );
 }
