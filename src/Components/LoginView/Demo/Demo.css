@@ -16,7 +16,7 @@
     font-size: xx-large;
     line-height: 60px;   
     display: flex;
-    align-items: center ;
+    align-items:center ;
 }
 .app__demo-calendar{
     display:flex;  
@@ -33,23 +33,24 @@
 }
  @media screen and (max-width:1150px) {
     .app__demo{
+        text-align: center;
+        padding-top: 20px;
         flex-direction: column;
         height: auto;
     }
     .app__demo-text{
         display:flex;  
-        padding: 5rem;
+        padding: 1rem;
         width: 100%;
     }
     .app__demo-h1{
-        padding: 2rem;
-        margin-top: 60px;
+        padding: 4rem 1rem;
+        align-items:flex-start ;
+        margin-top: 30px;
     }
     .app__demo-calendar{
-        align-items:flex-start;
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
+        display: flex;
+        height: 900px;
     }
- }
- @media screen and (max-width:650px) {
-    
  }

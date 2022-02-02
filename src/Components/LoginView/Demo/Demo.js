@@ -13,12 +13,12 @@ const Demo = () => {
         <div className='app__demo-h1'>
             Tutaj możesz zobaczyć jak wygląda przykładowy grafik. 
             Dodawaj i usuwaj dni w których chcesz być...
-            <AiOutlineArrowRight size={100} color='aqua'/>
+        <AiOutlineArrowRight size={100} color='var( --color-base)'/>
         </div>
     </div>
     <div className='app__demo-grafik'>
         <div className='app__demo-grafik-h1'>
-            Zalogowano jako: <text style={{color:"aqua"}}>Tester</text>
+            Zalogowano jako: <text style={{color:"var( --color-base)"}}>Tester</text>
         </div>
     
     </div>

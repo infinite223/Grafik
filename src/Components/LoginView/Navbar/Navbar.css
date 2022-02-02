@@ -46,16 +46,16 @@
     font-size:xx-large;
 }
 .app__navbar-login-color{
-    color: aqua;
+    color: var( --color-base);
 }
-a:after {
+.app__navbar a:after {
     display:block;
     content: '';
-    border-bottom: solid 3px aqua;  
+    border-bottom: solid 3px var( --color-base);  
     transform: scaleX(0);  
     transition: transform 250ms ease-in-out;
   }
-a:hover:after { 
+  .app__navbar a:hover:after { 
     transform: scaleX(1);
 }
 .app__navbar-smallscreen{
@@ -74,7 +74,7 @@ a:hover:after {
 }
 .app_navbar-smallscreen-overlay .overlay__close{
     font-size: 27px;
-    color: aqua;
+    color: var( --color-base);
     cursor: pointer;
     position: absolute;
     top:20px;
