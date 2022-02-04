@@ -4,7 +4,8 @@ import OneDay  from './OneDay/OneDay';
 import {useLocation} from 'react-router-dom';
 import React, {useState, useEffect } from 'react';
 import Axios from 'axios';
-
+import myLogo from '../../assets/photo_2.png';
+import Footer from '../MainPage/Footer/Footer'
 const daysAllUser = [];
 //get data from db
 Axios.get('http://localhost:3001/api/selectDays').then((response)=>{     
@@ -47,32 +48,38 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
           });                
     }
   return (
-    <div className="App">
-      <header className="App-header"> 
-        <div className='Header'>    
-            <div className='Name'>{location.state.name}</div>               
+    <div className="App__grafik">
+      <div className='app__grafik-main'>
+        <div className='app__grafik-menu'>
+           <img src={myLogo} alt='Logo grafik'/>
+           <div className='app__grafik-menu-h1'>
             <NowDate/>
-        </div>    
-        <div className="Name-Web"> 
-          Twój grafik
-          <div className='Calendar'>
-          <div>
-              {Array(Days).fill().map((x, i) => <OneDay
-                key={i}
-                yName={location.state.name} 
-                NowDay={i+1}
-                adddays={(x)=>handleAddClic(x)}
-                deletedays={(x)=>handleRemoveClick(x)}  
-                nowDays={daysAllUser}              
-                />    
-              )}
-            </div>                           
+             Nie zapomnij zapisać zmian wprowadzonych w grafiku!
+           </div>
+        </div>
+        <div className='app__grafik-calendar'>
+          <div className='app__grafik-calendar-h1'>
+            Zalogowano jako: <text style={{color:"var( --color-base)"}}>{location.state.name}</text>          
+          </div>  
+          <div className='app__grafik-calendar-main'>
+            <div className='app__grafik-calendar-days'>
+                {Array(Days).fill().map((x, i) => <OneDay
+                  key={i}
+                  yName={location.state.name} 
+                  NowDay={i+1}
+                  adddays={(x)=>handleAddClic(x)}
+                  deletedays={(x)=>handleRemoveClick(x)}  
+                  nowDays={daysAllUser}              
+                  />    
+                )}                          
+            </div>
+            <div className="app__grafik-calendar-save">
+              <button className='app__grafik-calendar-button' onClick={saveData}>Zapisz / Aktualizuj</button> 
+            </div>
           </div>
-        </div>   
-        <div>
-          <button className='saveButton' onClick={saveData}>Zapisz / Aktualizuj</button>   
-        </div>           
-      </header>        
+        </div>    
+      </div>   
+      <Footer/>             
     </div>
   );
 }

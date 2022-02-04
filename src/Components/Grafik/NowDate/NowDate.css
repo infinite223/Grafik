@@ -1,6 +1,5 @@
 
-.DateStyle{
-    text-align: right;
+.app__date{
     font-size: calc(3px + 2vmin);
     margin-right: 17px;
 }

@@ -1,7 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Start.css'
 import bgPhoto from '../../../assets/appStart-BG.png';
+import {MdImageSearch, MdOutlineRestaurantMenu} from 'react-icons/md'
+import StartNew from './StartNew/StartNew'
 const Start = () => {
+  const [toggleNew,setToggleNew] = useState(false);
   return (
     <div className='app__start' style={{backgroundImage: "url(" +  bgPhoto  + ")"}}>
         <div className='app__start-h1'>
@@ -10,8 +13,11 @@ const Start = () => {
              <p>Utwórz swój grafik klikając poniższy przycisk aby twoi pracownicy mogli się cieszyć wygodą.</p>
             </div>
         <div className='app__start-button'>
-            <button>Utwórz</button>
+            <button onClick={()=>setToggleNew(true)}>Utwórz</button>                  
         </div>
+        {toggleNew&&
+            <StartNew toggleNew={()=>setToggleNew(false)}/>         
+            } 
      </div>
   )
 }

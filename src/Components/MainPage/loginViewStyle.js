@@ -14,15 +14,16 @@ const inputStyle = {
 };
 
 const submitStyle = {
-    margin: '10px 0 0 0',
+    margin: '30px 0 0 0',
     padding: '7px 10px',
     border: '1px solid #efffff',
     borderRadius: '3px',
-    background: '#211124',
+    background: 'rgba(17, 15, 15, 0.959)',
     width: '100%', 
-    fontSize: '15px',
+    height:"60px",
+    fontSize: '25px',
     color: 'white',
-    display: 'block'
+    display: 'block',
 };
 const Field = React.forwardRef(({label, type}, ref) => {
     return (

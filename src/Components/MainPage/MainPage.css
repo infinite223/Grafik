@@ -1,0 +1,31 @@
+  .goodLogin{
+    color:#282c34;
+  }
+  .badLogin{
+    color: red;
+    height: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 800;
+  }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-base); 
+  height: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

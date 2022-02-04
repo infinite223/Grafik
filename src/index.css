@@ -12,5 +12,6 @@ code {
     monospace;
 }
 :root {
-  --color-base: rgb(250, 6, 189);
+  --color-base: rgb(221, 185, 25);
+  --color-2: rgb(250, 6, 189);
 }

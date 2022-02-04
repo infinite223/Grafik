@@ -1,43 +1,58 @@
-.App {
+.app__grafik {
   text-align: center;
   color: white;
-  background-color: #282c34;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
 }
-.App-header {
-  min-height: 100vh;
+.app__grafik-main{
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
   display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
 }
-.Name-Web{
-  font-size: calc(15px + 2vmin);
-  letter-spacing: 5px;
-  align-items: center;
+.app__grafik-menu img{
+  width: 300px;
 }
-.App-link {
-  color: #61dafb;
+.app__grafik-menu{
+  width: 20%;
+  height: auto;
+  background-color: black;
+  border-right: 1px solid rgb(51, 46, 46);
 }
-.Calendar{
-  margin: 20px;
-}
-.Name{
-  float: left;
-  text-align: left;
-  max-width: 100px;
-  margin: 30px;
-}
-.Header{
-  flex-direction: row;
-}
-.saveButton{
-  border: 2px solid aqua;
-  border-radius: 5%;
-  width: 400px;
-  height: 80px;
+.app__grafik-menu-h1{
+  padding: 3rem 2rem;
   color: white;
-  font-size:larger;
-  background-color: #282c34;;
+  font-size: 18px;
+}
+.app__grafik-calendar{
+  width: 80%;
+  height: auto;
+  background-color: black;
+}
+.app__grafik-calendar-h1{
+  text-align: end;
+  color: white;
+  padding:30px;
+}
+.app__grafik-calendar-days{
+  padding-left: 5rem; 
+  padding-top: 2rem;
+}
+.app__grafik-calendar-main{
+  flex-direction: column;
+   display: flex;
+ }
+
+
+.app__grafik-calendar-button{
+  float: right;
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  border: 2px solid white;
+  border-radius: 5%;
+  width: 300px;
+  height: 80px;
+  font-size:larger;
+  background-color: rgba(17, 15, 15, 0.959);
+  margin:70px;
 }

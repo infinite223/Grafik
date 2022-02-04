@@ -1,5 +1,6 @@
 .app__navbar{
-    width: 100%;
+
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +43,42 @@
     transition: 0.5s ease;
     font-size:x-large;
 }
+.app__login-view{
+    position: fixed;
+    top:25%;
+    left: 25%;
+    width: 50%;
+    z-index: 5;
+    height: 50vh;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 2%;
+    justify-content: space-between;
+    display: flex;
+    opacity: 0.9;
+}
+
+.app__login-view-h1{
+    color: white;
+    padding:2rem; 
+    font-size: 20px;
+
+}
+.app__login-view-form{
+    padding:2rem;
+}
+.overlay__close{
+    font-size: 27px;
+    cursor: pointer;
+    position: absolute;
+    top:20px;
+    right: 20px;
+    color: white;
+}
+.overlay__close:hover{
+    color: var(--color-base);
+}
+
 .app__navbar-login a:hover{
     font-size:xx-large;
 }

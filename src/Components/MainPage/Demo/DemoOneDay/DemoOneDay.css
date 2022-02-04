@@ -1,36 +1,32 @@
-.OneDayBox{
-    color: white;
+.app__DemoOneDay-day{
     text-align: left;   
     border:2px solid white ;
     border-radius: 5%;
-    width: 120px;
+    width: 100px;
     height: 50px;
     font-size: 10px;
     padding: 1%;
     float: left;
     margin: 10px;
 }
-.OneDayBox:hover{
-    border:2px solid var(--color-base) ;
+.app__DemoOneDay-day:hover{
     cursor: pointer;
+    border:2px solid var(--color-base) ;
 }
-.Names{
+.app__DemoOneDay-names{
     color: white;
     text-align: right;
+    font-size: 17px;
     letter-spacing: normal;
 }
-.OneDayBoxActive{
-    color: white;
+.app__DemoOneDay-day-active{
     text-align: left;   
     border:2px solid var(--color-base) ;
     border-radius: 5%;
-    width: 120px;
+    width: 100px;
     height: 50px;
     font-size: 10px;
     padding: 1%;
     float: left;
     margin: 10px;
-}
-.OneDayBoxActive:hover{
-cursor: pointer;
 }
