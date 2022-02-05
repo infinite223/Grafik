@@ -14,10 +14,20 @@
     color: white;
 }
 .app__start-new-inputs{
-    padding: 4rem;
+    padding: 3rem;
 
 }
 .app__start-new-text{
     padding: 4rem;
     align-items:center;
+}
+.errors{
+    font-size: larger;
+    color: rgb(255, 6, 6);
+    margin-bottom: 20px;
+}
+.goodData{
+    font-size: larger;
+    color: rgb(55, 206, 55);
+    margin-bottom: 20px;
 }

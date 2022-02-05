@@ -30,11 +30,13 @@ const Navbar = () => {
      
       const usernameRef = React.useRef();
       const passwordRef = React.useRef();
+      const passwordGroupRef = React.useRef();
       const handleSubmit = e => {
           e.preventDefault();
           const data = {
               username: usernameRef.current.value,
-              password: passwordRef.current.value
+              password: passwordRef.current.value,
+              passwordGroup: passwordGroupRef.current.value
           };
           onSubmit(data);
       };
@@ -42,7 +44,8 @@ const Navbar = () => {
         <form style={formStyle}  onSubmit={handleSubmit} >         
           <div className='badLogin'>{badLogin}</div>
           <Field ref={usernameRef} label="Username:" type="text" />
-          <Field ref={passwordRef} label="Login:" type="password" />        
+          <Field ref={passwordRef} label="Login:" type="password" />    
+          <Field ref={passwordGroupRef} label="Hasło do grupy:" type="password" />      
           <div>
             <button style={submitStyle} type="submit">Zaloguj</button>
           </div>
@@ -61,8 +64,9 @@ const Navbar = () => {
                 test.push(item);
             });
             let out = 0;
+            console.log(test)
               for(let i=0; i<test.length;i++){
-                if(test[i].name==data.username && test[i].login==data.password){
+                if(test[i].name===data.username && test[i].login===data.password && test[i].password===data.passwordGroup){
                   alert("udało się zalogować");   
                   out = 1;                 
                 }
