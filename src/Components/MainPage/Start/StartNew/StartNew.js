@@ -53,20 +53,28 @@ const StartNew = (props)=> {
               arr.map((item)=> {
                   test.push(item);
               });
+              var out = true;
               for(var i in test){
-                if(test[i].Tables_in_kieroprato===data.username || data.username===""){
+                console.log(test[i])
+                if(test[i].nameGroup===data.username || data.username===""){
                   setError("istnieje już taka grupa z taką nazwą")
                     console.log("istnieje już taka grupa z taką nazwą")
+                    out =false;
                 }  
                 if(data.password!==data.password2){
                   setError("dane nie są prawdziwe!")
                   console.log("dane nie są prawdziwe!")
-                }                        
-                else{
-                  setGoodData("grupa została utworzona pomyślnie!")
-                  console.log("tworzymy") 
-                }  
-              }                                    
+                  out =false;
+                }                          
+              }  
+              if(out===true){
+                setGoodData("grupa została utworzona pomyślnie!");
+                Axios.post('http://localhost:3001/api/createTable',{
+                  nameGroup:data.username,         
+                  password:data.password
+                  }).then(()=>{
+                });   
+              }                                  
             });
         };
   

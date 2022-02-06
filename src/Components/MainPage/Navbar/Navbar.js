@@ -65,8 +65,11 @@ const Navbar = () => {
             });
             let out = 0;
             console.log(test)
+            let nameGroup = "";
               for(let i=0; i<test.length;i++){
                 if(test[i].name===data.username && test[i].login===data.password && test[i].password===data.passwordGroup){
+                  nameGroup = test[i].nameGroup;
+                  console.log(nameGroup);
                   alert("udało się zalogować");   
                   out = 1;                 
                 }
@@ -76,7 +79,7 @@ const Navbar = () => {
                 setBadLogin("Zły login");          
               }
               else{                       
-                navigate("/Grafik",{state:{name:data.username}});   
+                navigate("/Grafik",{state:{name:data.username,nameGroup:nameGroup}});   
                 setusernameNow(data.username);        
               }                                                             
           });
