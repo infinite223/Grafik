@@ -11,7 +11,7 @@ function OneDay(props){
         const daysUser = [null];
         const arr = props.nowDays[i][1].days.substr(1,props.nowDays[i][1].days.length-2).split(",")//dziwaczne ale działa dobrze 
         for(var j in arr){
-          daysUser.push(j, parseInt(arr[j],10));  
+          if(props.nowDays[i][1].nameGroup===props.nameGroup){daysUser.push(j, parseInt(arr[j],10));}
         }
         
         if(daysUser.find(element => element === props.NowDay)){

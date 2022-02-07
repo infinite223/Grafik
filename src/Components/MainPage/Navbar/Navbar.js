@@ -10,20 +10,13 @@ import myLogo from '../../../assets/photo_2.png';
 const Navbar = () => {
     const [toggleMenu,setToggleMenu] = useState(false);
     const [toggleLogin,setToggleLogin] = useState(false);
-    ////////////////////////////////
+   
     let navigate = useNavigate();  
     const [loginColor, setLoginColor] = useState("aqua");  
     const [badLogin, setBadLogin] = useState("");  
     const [usernameNow, setusernameNow] =useState("");  
    
-  const formStyle = {
-      margin: 'auto',
-      padding: '20px',
-      background: "black",
-      width: '245px', 
-      display: 'block',
-      color:"white"
-  };
+ 
 
 
   const Form = ({onSubmit}) => {
@@ -41,7 +34,7 @@ const Navbar = () => {
           onSubmit(data);
       };
       return (
-        <form style={formStyle}  onSubmit={handleSubmit} >         
+        <form className='formStyle'  onSubmit={handleSubmit} >         
           <div className='badLogin'>{badLogin}</div>
           <Field ref={usernameRef} label="Username:" type="text" />
           <Field ref={passwordRef} label="Login:" type="password" />    
@@ -64,19 +57,44 @@ const Navbar = () => {
                 test.push(item);
             });
             let out = 0;
-            console.log(test)
+            let out2 = 0;
             let nameGroup = "";
               for(let i=0; i<test.length;i++){
                 if(test[i].name===data.username && test[i].login===data.password && test[i].password===data.passwordGroup){
-                  nameGroup = test[i].nameGroup;
-                  console.log(nameGroup);
+                  nameGroup = test[i].nameGroup;                
                   alert("udało się zalogować");   
                   out = 1;                 
                 }
+                if(test[i].name===data.username){
+                  out2 = 1;
+                }
               }
               if(out===0){
-                setLoginColor("red");
-                setBadLogin("Zły login");          
+                //sprawdz czy istnieje grupa z hasłem takim ten no...jak tak to utworz          
+                Axios.get('http://localhost:3001/api/getGroup').then(results => {      
+                  return results.data;       
+                }).then(res => {
+                  console.log(res)
+                  out=2;
+                  for(var j in res){
+                    if(res[j].password===data.passwordGroup && out2===0){                
+                      setBadLogin("Użytkownik został utworzony!");  
+                      console.log("tworzenie");
+                      Axios.post('http://localhost:3001/api/createUser',{
+                        name:data.username,
+                        password:data.password,
+                        nameGroup:res[j].nameGroup                       
+                        }).then(()=>{
+                      });                                            
+                      out = 3;
+                    }             
+                  } 
+                  if(out===2){
+                    console.log("zły login");
+                  setLoginColor("red");
+                  setBadLogin("Zły login");  
+                  }                    
+                })    
               }
               else{                       
                 navigate("/Grafik",{state:{name:data.username,nameGroup:nameGroup}});   
@@ -84,7 +102,7 @@ const Navbar = () => {
               }                                                             
           });
       };
-    ////////////////////////////////
+
     return (
         <nav className='app__navbar'>
             <div className='app_navbar-logo'>
@@ -104,10 +122,11 @@ const Navbar = () => {
                   <div className='app__login-view-h1'>
                     Zaloguj się do swojego grafiku podając nazwe użytkownika i login
                     <hr style={{height:"3px",color:"var( --color-base)",border:"0px",backgroundColor:"var( --color-base)"}}/>
+                    <p>Gdy nie masz jeszcze utworzonego konta, zaloguj nadając sobie swoją nazwę użytkownika, hasło i wpisując hasło do docelowej grupy</p>
                     <p style={{fontSize:"14px"}}>Jeśli występuje błąd logowania zgłoś się do twórcy grupy lub administratora strony.</p>
                   </div>
                   <div className='app__login-view-form'>
-                     <Form onSubmit={handleSubmit} />   
+                     <Form  onSubmit={handleSubmit} />   
                   </div> 
                  <div name={usernameNow}></div>
               </div>

@@ -24,7 +24,7 @@
 .app__wrapper_img img{
     width: 550px;
     padding-left: 1rem;
-    opacity: 0.6;
+    opacity: 0.8;
     transform: rotate(15deg);
 }
 @media screen and (max-width:2000px) {

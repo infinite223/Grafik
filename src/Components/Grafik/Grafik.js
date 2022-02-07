@@ -7,10 +7,12 @@ import Axios from 'axios';
 import myLogo from '../../assets/photo_2.png';
 import Footer from '../MainPage/Footer/Footer'
 const daysAllUser = [];
+const daysAllUserGroup = [];
 //get data from db
-Axios.get('http://localhost:3001/api/selectDays').then((response)=>{     
+Axios.get('http://localhost:3001/api/selectDays').then((response)=>{  
+  console.log(response.data)   
   for(var i in response.data)
-    daysAllUser.push([i, response.data[i]]);  
+  daysAllUser.push([i, response.data[i]]);
 })  
 
 //main function
@@ -19,7 +21,6 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
     const Days = 31;//trzeba tu jeszcze zajebać funkcje (ile dni w danym miechu)
     const daysUser = [null];
     const nameGroup = location.state.nameGroup;
-
     
     useEffect(() => {
       for(var i in daysAllUser){
@@ -73,7 +74,8 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
                     NowDay={i+1}
                     adddays={(x)=>handleAddClic(x)}
                     deletedays={(x)=>handleRemoveClick(x)}  
-                    nowDays={daysAllUser}              
+                    nowDays={daysAllUser}  
+                    nameGroup={nameGroup}            
                     />    
                   )}                          
               </div>

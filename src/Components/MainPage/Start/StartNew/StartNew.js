@@ -8,14 +8,6 @@ const StartNew = (props)=> {
     const [error, setError] = useState(""); 
     const [goodData, setGoodData] = useState(""); 
      
-    const formStyle = {
-        margin: 'auto',
-        padding: '0px',
-        background: "black",
-        width: '245px', 
-        display: 'block',
-        color:"white"
-    };
     const Form = ({onSubmit}) => {
      
         const usernameRef = React.useRef();
@@ -31,7 +23,7 @@ const StartNew = (props)=> {
             onSubmit(data);
         };
         return (
-          <form style={formStyle}  onSubmit={crateTable} >    
+          <form  className="formStyle" onSubmit={crateTable} >    
            <div className={error?"errors":"goodData"}>{error}{goodData}</div>              
             <Field ref={usernameRef} label="Nazwa grupy:" type="text" />
             <Field ref={passwordRef} label="Hasło do grafiku:" type="password" /> 
