@@ -13,10 +13,10 @@ function OneDay(props){
         for(var j in arr){
           if(props.nowDays[i][1].nameGroup===props.nameGroup){daysUser.push(j, parseInt(arr[j],10));}
         }
-        
+        console.log(props.nameGroup)
         if(daysUser.find(element => element === props.NowDay)){
-           setWorker(worker=>[...worker,props.nowDays[i][1].user]);                                  
-            if(props.nowDays[i][1].user===props.yName){
+           setWorker(worker=>[...worker,props.nowDays[i][1].user]);                                
+            if(props.nowDays[i][1].user===props.yName && props.nowDays[i][1].nameGroup===props.nameGroup){
               setColor('OneDayBoxActive'); 
             }
         }      
@@ -38,7 +38,7 @@ function OneDay(props){
 
     return (    
           <div className={color} onClick={(x)=>ChengeApply()}>          
-            {props.NowDay}  
+            {props.NowDay}{props.nameDay()}  
             <div className='Names'>
               {worker.map((user,i)=>(
                 <div key={i}>{user}</div>

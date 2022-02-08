@@ -17,20 +17,33 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
 
 //main function
  function Grafik() {  
-    const location = useLocation();
-    const Days = 31;//trzeba tu jeszcze zajebać funkcje (ile dni w danym miechu)
-    const daysUser = [null];
-    const nameGroup = location.state.nameGroup;
-    
-    useEffect(() => {
-      for(var i in daysAllUser){
-        if(daysAllUser[i][1].user===location.state.name && daysAllUser[i][1].nameGroup===nameGroup){
-          const arr = daysAllUser[i][1].days.substr(1,daysAllUser[i][1].days.length-2).split(",");
-          for(var j in arr)
-          daysUser.push(j, parseInt(arr[j],10)); 
-        }
-      } 
-    }, []); 
+    const d = new Date();
+      function daysInMonth (month, year) {
+        return new Date(year, month, 0).getDate();
+      }
+      const getNameDay = (day) =>{
+        let nameDay = "";
+        const days = [" Niedziela"," Poniedziałek", " Wtorek", " Środa", " Czwartek", " Piątek", " Sobota"];
+          var dayInMonth = new Date(`February ${day}, 2022 23:15:00`);
+          nameDay=days[dayInMonth.getDay()];
+          
+        console.log("aaaa")
+        return (<>{nameDay}</>);
+      }
+      const location = useLocation();
+      const Days = daysInMonth(d.getMonth()+1,2022);
+      const daysUser = [null];
+      const nameGroup = location.state.nameGroup;
+      
+      useEffect(() => {
+        for(var i in daysAllUser){
+          if(daysAllUser[i][1].user===location.state.name && daysAllUser[i][1].nameGroup===nameGroup){
+            const arr = daysAllUser[i][1].days.substr(1,daysAllUser[i][1].days.length-2).split(",");
+            for(var j in arr)
+            daysUser.push(j, parseInt(arr[j],10)); 
+          }
+        } 
+      }, []); 
 
     //add day to arrow
       const handleAddClic = (x) => {
@@ -75,7 +88,9 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
                     adddays={(x)=>handleAddClic(x)}
                     deletedays={(x)=>handleRemoveClick(x)}  
                     nowDays={daysAllUser}  
-                    nameGroup={nameGroup}            
+                    nameGroup={nameGroup}   
+                  
+                    nameDay={()=>getNameDay(i+1)}        
                     />    
                   )}                          
               </div>
