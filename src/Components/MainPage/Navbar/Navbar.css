@@ -158,7 +158,7 @@
         left: 0;
         width: 100%;
         z-index: 5;
-        height: 100vh;
+        height: auto;
         background-color: black;
         border: none;
         flex-direction: column;
@@ -177,7 +177,7 @@
         margin: auto;
         padding: 20px;
         background: black;  
-        width: 445px;       
+        width: 225px;       
     }
 }
 @media screen and (max-width:650px) {

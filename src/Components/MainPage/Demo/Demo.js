@@ -15,7 +15,7 @@ const Demo = () => {
         <div className='app__demo-h1'>
             Tutaj możesz zobaczyć jak wygląda przykładowy grafik. 
             Dodawaj i usuwaj dni w których chcesz być...
-           <AiOutlineArrowRight size={100} color='var( --color-base)'/>
+           <AiOutlineArrowRight className="arrow" size={100} color='var( --color-base)'/>
         </div>
     </div>
     <div className='app__demo-grafik'>

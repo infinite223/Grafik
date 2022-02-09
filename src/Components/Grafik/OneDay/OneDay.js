@@ -13,9 +13,9 @@ function OneDay(props){
         for(var j in arr){
           if(props.nowDays[i][1].nameGroup===props.nameGroup){daysUser.push(j, parseInt(arr[j],10));}
         }
-        console.log(props.nameGroup)
         if(daysUser.find(element => element === props.NowDay)){
-           setWorker(worker=>[...worker,props.nowDays[i][1].user]);                                
+          console.log(props.NowDay+" "+props.nowDays[i][1].user)
+           setWorker(worker=>[...worker,props.nowDays[i][1].user]);                             
             if(props.nowDays[i][1].user===props.yName && props.nowDays[i][1].nameGroup===props.nameGroup){
               setColor('OneDayBoxActive'); 
             }

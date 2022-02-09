@@ -45,29 +45,19 @@
         text-align: center;
         padding-top: 20px;
         flex-direction: column;
-        height: auto;
-    }
-    .app__demo-text{
-        display:flex;  
-        padding: 1rem;
-        width: 100%;
+        height: auto; 
+        max-width: 100%;
     }
     .app__demo-h1{
-        padding: 4rem 1rem;
-        align-items:flex-start ;
-        margin-top: 30px;
+        margin-top: 90px;
+        font-size: 22px;
     }
-    .app__demo-grafik{
-        width: 100%;
-        max-width: 100%;
-        padding: 10px;
-    }
-    .app__demo-grafik-h1{
-        padding-right: 100px;
-    }
+
     .app__demo-calendar{
         padding-bottom: 2rem;
-        display: flex;
         height: auto;
+    }
+    .arrow{
+        display: none;
     }
  }

@@ -141,6 +141,7 @@ const Navbar = () => {
                         <li className='p__opensans'><a href='#home'>How to start?</a></li>
                         <li className='p__opensans'><a href='#Demo'>Demo</a></li>
                         <li className='p__opensans'><a href='#Contact'>Contact and  help</a></li>
+                        <li className='p__opensans' onClick={()=>(setToggleLogin(true),setToggleMenu(false))}><a href='#Contact'>Log In</a></li>
                     </ul>
                 </div>
                 )}  
