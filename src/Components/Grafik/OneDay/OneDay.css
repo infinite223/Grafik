@@ -34,3 +34,26 @@
 .OneDayBoxActive:hover{
 cursor: pointer;
 }
+@media screen and (max-width:1150px) {
+    .OneDayBox{
+        color: white;
+        text-align: left;   
+        border:2px solid white ;
+        border-radius: 5%;
+        width: 80%;
+        height: 80px;
+        font-size: 15px;
+        padding: 1%;
+        margin-bottom: 4px;
+    }
+    .OneDayBoxActive{
+        color: white;
+        text-align: left;   
+        border:2px solid var(--color-base) ;
+        width: 80%;
+        height: 80px;
+        font-size: 15px;
+        padding: 1%;
+        margin-bottom: 4px;
+    }
+  }

@@ -43,11 +43,9 @@
   flex-direction: column;
    display: flex;
  }
-
-
+ 
 .app__grafik-calendar-button{
   float: right;
-  align-items: center;
   border: 2px solid white;
   border-radius: 5%;
   width: 300px;
@@ -55,4 +53,32 @@
   font-size:larger;
   background-color: rgba(17, 15, 15, 0.959);
   margin:70px;
+}
+
+@media screen and (max-width:1150px) {
+  .app__grafik-main{
+   flex-direction: column;
+    display: flex;
+    max-width: 100%;
+  }
+  .app__grafik-menu{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    border-right: none;
+  }
+  .app__grafik-calendar{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    align-items: center;
+  }
+  .app__grafik-calendar-button{
+    float: none;
+    width: 230px;
+    height: 50px;
+  }
+}
+@media screen and (max-width:650px) {
+
 }
