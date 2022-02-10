@@ -9,7 +9,7 @@ import Footer from '../MainPage/Footer/Footer'
 const daysAllUser = [];
 const daysAllUserGroup = [];
 //get data from db
-Axios.get('http://localhost:3001/api/selectDays').then((response)=>{  
+Axios.get('https://grafik-users.herokuapp.com/api/selectDays').then((response)=>{  
   console.log(response.data)   
   for(var i in response.data)
   daysAllUser.push([i, response.data[i]]);
@@ -56,7 +56,7 @@ Axios.get('http://localhost:3001/api/selectDays').then((response)=>{
       };
       //save all data in DB
       const saveData = () =>{
-            Axios.post('http://localhost:3001/api/insertDay',{
+            Axios.post('https://grafik-users.herokuapp.com/api/insertDay',{
               days:JSON.stringify(daysUser),         
               name:location.state.name
               }).then(()=>{

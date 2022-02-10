@@ -48,7 +48,7 @@ const Navbar = () => {
 
 
     const handleSubmit = data => {                
-        Axios.get('http://localhost:3001/api/get').then(results => {      
+        Axios.get('https://grafik-users.herokuapp.com/api/get').then(results => {      
           return results.data;       
         }).then(res => {
           let arr = res;
@@ -71,7 +71,7 @@ const Navbar = () => {
               }
               if(out===0){
                 //sprawdz czy istnieje grupa z hasłem takim ten no...jak tak to utworz          
-                Axios.get('http://localhost:3001/api/getGroup').then(results => {      
+                Axios.get('https://grafik-users.herokuapp.com/api/getGroup').then(results => {      
                   return results.data;       
                 }).then(res => {
                   console.log(res)
@@ -80,7 +80,7 @@ const Navbar = () => {
                     if(res[j].password===data.passwordGroup && out2===0){                
                       setBadLogin("Użytkownik został utworzony!");  
                       console.log("tworzenie");
-                      Axios.post('http://localhost:3001/api/createUser',{
+                      Axios.post('https://grafik-users.herokuapp.com/api/createUser',{
                         name:data.username,
                         password:data.password,
                         nameGroup:res[j].nameGroup                       

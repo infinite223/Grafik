@@ -37,7 +37,7 @@ const StartNew = (props)=> {
     const crateTable = data =>{
       setError("");
       setGoodData("");
-        Axios.get('http://localhost:3001/api/exist').then(results => {        
+        Axios.get('https://grafik-users.herokuapp.com/api/exist').then(results => {        
             return results.data;       
            }).then(res => {
             let arr = res;
@@ -61,7 +61,7 @@ const StartNew = (props)=> {
               }  
               if(out===true){
                 setGoodData("grupa została utworzona pomyślnie!");
-                Axios.post('http://localhost:3001/api/createTable',{
+                Axios.post('https://grafik-users.herokuapp.com/api/createTable',{
                   nameGroup:data.username,         
                   password:data.password
                   }).then(()=>{
